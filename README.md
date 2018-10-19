@@ -3,7 +3,9 @@ In this repository, I explore various CNN architectures that can be used to dete
 
 ## Data
 The original dataset consists of 7049 training images. Each image is grayscale and sized at a 96x96 resolution.
-However, there is an uneven distribution of # keypoints / image throughout the training set, with images having either 4 or 15 keypoints per image. Specifically, 2140 images were annotated with 15 keypoints / image, while the remaining 4909 images had 4 keypoints per image.
+However, there is an uneven distribution of # keypoints / image throughout the training set, with images having either 4 or 15 keypoints per image. Specifically, 2140 images were annotated with 15 keypoints / image, while the remaining 4909 images had 4 keypoints per image. Examples of the original ground-truth images & keypoints are shown below:
+
+![alt_text](images/training_examples.png)
 
 I trained my models on the 15-keypoint subset of training images. The script [here] extracts each corresponding image from the full training set and saves it to a user-specified directory.
 
@@ -23,7 +25,9 @@ To convert the training images to heatmaps, use the following procedure:
    2) Apply the kernel to every (i,j) location in the original image. 
    3) Repeat steps 1-2 *Nkeypoints* times, updating the gaussian kernel with a new centre location. For each iteration,             concatentate the resulting single-channel heatmap with the previous heatmaps.
 
-Examples of ground-truth images and their corresponding heatmaps are shown below: 
+Examples of ground-truth images and their corresponding heatmaps are shown below:
+
+![alt_text](images/hm_examples.png)
 
 Conceptually, heatmap prediction is similar to semantic segmentation, where a network both inputs and outputs a mask tensor. The main difference with heatmap prediction is that the channels of a typical segmentation output tensor correspond to object classes, whereas our prediction will correpsond to individual keypoint heatmaps. I created two models based on the popular FCN[6] and Unet[7] architectures that have previously been used for semantic segmentation tasks. 
 
