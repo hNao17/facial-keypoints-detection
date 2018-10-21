@@ -7,7 +7,7 @@ However, there is an uneven distribution of # keypoints / image throughout the t
 
 ![alt_text](images/training_examples.png)
 
-I trained my models on the 15-keypoint subset of training images. The script [here] extracts each corresponding image from the full training set and saves it to a user-specified directory.
+I trained my models on the 15-keypoint subset of training images. The script [here](save_images.py) extracts each corresponding image from the full training set and saves it to a user-specified directory.
 
 ## Architecture
 Similar to object detection, keypoint detection can be treated as a regression problem. The design question in terms of architecture then becomes whether the network should 1) directly predict the keypoint locations or 2) predict an intermediary representation that keypoints can then be inferred from.
@@ -34,9 +34,12 @@ Conceptually, heatmap prediction is similar to semantic segmentation, where a ne
 Finally, the predicted heatmaps need to be transformed back into (i,j) coordinates. A simple method to do this is to search each heatmap channel for the (i,j) indices corresponding to the maximum heatmap value. However, to account for outlier predictions by the network, the keypoint coordinates can be calculated as the weighted average of all heatmap values / (i,j) index pairs. 
 
 ## Training
-The 15-keypoint dataset was divided into a 90% / 10% trainval split. 
+The 15-keypoint dataset was divided into a 90% / 10% trainval split.
 
-## Results
+[See here](directRegression.ipynb) for training results with the direct regression method.
+
+[See here](hm_regression_prelim.ipynb) for preliminary training results with the heatmap regression method.
+
 
 ## References
 
