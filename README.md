@@ -15,7 +15,7 @@ Similar to object detection, keypoint detection can be treated as a regression p
 ### Direct Regression
 With this method, FC layers are added directly on top of a standard classification backbone network like VGG or ResNet. The number of units in the final FC layer corresponds to the 2x*NKeypoints* (in our case 30). 
 
-I trained two models using this approach where the two backbone architectures were inspired by VGG-16 [4] and ResNet[5].
+I trained two models using this approach where the two backbone architectures were inspired by VGG-16[4] and ResNet[5].
 
 ### Heatmap Regression 
 Alternatively, keypoint information can be combined together with the raw image to form a heatmap. Each pixel location (i,j) in the heatmap stores a value representing the probability of that location being a keypoint. Therefore, the input to a network is no longer a 96x96x1 grayscale image but instead a 96x96x15 heatmap tensor, where each channel along the input tensor's depth corresponds to a unique keypoint heatmap. 
@@ -36,9 +36,9 @@ Finally, the predicted heatmaps need to be transformed back into (i,j) coordinat
 ## Training
 The 15-keypoint dataset was divided into a 90% / 10% trainval split.
 
-[See here](directRegression.ipynb) for training results with the direct regression method.
+[See here](directRegression.ipynb) for training setup / results with the direct regression method.
 
-[See here](hm_regression_prelim.ipynb) for preliminary training results with the heatmap regression method.
+[See here](hm_regression_prelim.ipynb) for training setup / preliminary results with the heatmap regression method.
 
 
 ## References
