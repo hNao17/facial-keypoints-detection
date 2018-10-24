@@ -38,7 +38,7 @@ The 15-keypoint dataset was divided into a 90% / 10% trainval split.
 
 [See here](directRegression.ipynb) for training setup / results with the direct regression method.
 
-[See here](hm_regression_prelim.ipynb) for training setup / preliminary results with the heatmap regression method.
+[See here](hm_regression.ipynb) for training setup / results with the heatmap regression method.
 
 
 ## References
