@@ -36,10 +36,15 @@ Finally, the predicted heatmaps need to be transformed back into (i,j) coordinat
 ## Training
 The 15-keypoint dataset was divided into a 90% / 10% trainval split.
 
+### Direct Regression
+I used the Adam optimizer, a weight decay of 5e-4 and 1e-4 for the VGG and ResNet models and an initial learning rate of 0.01 that was decreased by a factor of 10 when the validation loss stopped improving. The VGG and ResNet models were trained for a total of 48 and 43 epochs respectively. 
+
 [See here](directRegression.ipynb) for training setup / results with the direct regression method.
 
-[See here](hmRegression.ipynb) for training setup / results with the heatmap regression method.
+### Heatmap Regression
+I used the RMSProp optimizer, no weight decay and a constant learning rate of 0.001 for both FCN and Unet models. Both models were trained for a total of 40 epochs.
 
+[See here](hmRegression.ipynb) for training setup / results with the heatmap regression method.
 
 ## References
 
